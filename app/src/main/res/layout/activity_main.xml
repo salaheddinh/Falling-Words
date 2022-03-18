@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.gameScreen.GameActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vTopViews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivPause"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/red"
+            android:padding="8dp"
+            android:src="@drawable/ic_pause"
+            app:layout_constraintBottom_toBottomOf="@id/vTime"
+            app:layout_constraintEnd_toStartOf="@id/ivRestart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/vTime" />
+
+        <ImageView
+            android:id="@+id/ivRestart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/blue"
+            android:padding="8dp"
+            android:src="@drawable/ic_restart"
+            app:layout_constraintBottom_toBottomOf="@id/vTime"
+            app:layout_constraintEnd_toStartOf="@id/pbTimer"
+            app:layout_constraintStart_toEndOf="@id/ivPause"
+            app:layout_constraintTop_toTopOf="@id/vTime" />
+
+        <ProgressBar
+            android:id="@+id/pbTimer"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:max="100"
+            android:progress="45"
+            app:layout_constraintBottom_toBottomOf="@id/vTime"
+            app:layout_constraintEnd_toStartOf="@id/vTime"
+            app:layout_constraintStart_toEndOf="@id/ivRestart"
+            app:layout_constraintTop_toTopOf="@id/vTime" />
+
+
+        <LinearLayout
+            android:id="@+id/vScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/rectangle_red"
+            android:backgroundTint="@color/yellow"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vTime"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_star" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="0"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/vScore"
+            app:layout_constraintEnd_toStartOf="@id/vScore"
+            app:layout_constraintStart_toEndOf="@id/pbTimer"
+            app:layout_constraintTop_toTopOf="@id/vScore">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_clock" />
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="3S"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvFallingWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_red"
+        android:backgroundTint="#FCECBE"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="2dp"
+        android:text="Door"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vTopViews"
+        app:layout_constraintTop_toBottomOf="@id/vTopViews" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vBottomViews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/ivCorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_green"
+            android:padding="16dp"
+            android:src="@drawable/ic_check"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvCurrentWord"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCurrentWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Die Tür"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivCorrect"
+            app:layout_constraintEnd_toStartOf="@id/ivWrong"
+            app:layout_constraintStart_toEndOf="@id/ivCorrect"
+            app:layout_constraintTop_toTopOf="@id/ivCorrect" />
+
+        <ImageView
+            android:id="@+id/ivWrong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_red"
+            android:padding="16dp"
+            android:src="@drawable/ic_cross"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvCurrentWord" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
